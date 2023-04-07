@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input name="hiddenField" id="fe935" value="">
+        <input name="utm_campaign" id="fe931" value="NoData">
+        <input name="utm_source" id="fe932" value="NoData">
+        <input name="utm_medium" id="fe933" value="NoData">
+    </form>
+    
+    <script>
+           
+            // const url = new URL("https://outsetstage.wpengine.com/patients/?utm_source=Fido&utm_medium=cellphone&utm_campaign=summer");
+            //     const params = new URLSearchParams(url);
+            //     url.searchParams.forEach(function (val, key) {
+
+            //             console.log(key ,val)
+            //     });
+
+            var url = new URL("https://outsetstage.wpengine.com/patients/?utm_source=Fido&utm_medium=cellphone&utm_campaign=summer");
+            var params = new URLSearchParams(url);
+                var paraobject ={}
+                url.searchParams.forEach(function (val, key) {
+                if(key.startsWith("utm_"))
+                    paraobject[key] = val
+                    });
+                
+                var utm_campaign = paraobject["utm_campaign"]
+                var utm_source = paraobject["utm_source"]
+                var utm_medium = paraobject["utm_medium"]
+
+                // Utm_Campaign
+                var selector_utm_campaign = "input[name='utm_campaign']"  
+                var field_utm_campaign = document.querySelector(selector_utm_campaign)
+                if(field_utm_campaign){ field_utm_campaign.value = utm_campaign;}
+
+                // Utm_Source
+                var selector_utm_source = "input[name='utm_source']"  
+                var field_utm_source = document.querySelector(selector_utm_source)
+                if(field_utm_source){ field_utm_source.value = utm_source;}
+
+                // Utm_Medium
+                var selector_utm_medium = "input[name='utm_medium']"  
+                var field_utm_medium = document.querySelector(selector_utm_medium)
+                if(field_utm_medium){ field_utm_medium.value = utm_medium;}
+
+
+            </script>
+                
+</body>
+</html>
